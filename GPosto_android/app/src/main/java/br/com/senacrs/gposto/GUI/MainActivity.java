@@ -33,8 +33,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements UsuarioCallback {
 
-    // \o/
-
     private LoginButton loginButton;
     private Button btnLogin;
     private EditText txtLogin;

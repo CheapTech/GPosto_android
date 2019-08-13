@@ -11,12 +11,11 @@ public class Usuario implements Serializable {
     private String senha;
     private String email;
 
-    /*public Usuario(int id, String user, String senha, String email) {
-        this.id = id;
+    public Usuario(String user, String senha, String email) {
         this.user = user;
         this.senha = senha;
         this.email = email;
-    }*/
+    }
     
     //get/set
     public int getId(){

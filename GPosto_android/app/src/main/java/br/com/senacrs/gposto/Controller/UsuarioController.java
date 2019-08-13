@@ -48,4 +48,32 @@ public class UsuarioController {
             }
         });
     }
+
+    public void sendUsuarioWeb(final Usuario usuario, final UsuarioCallback callback) throws Exception{
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+        Interface services = retrofit.create(Interface.class);
+
+        final Call<Usuario> user = services.cadastrarUsuario(usuario);
+        user.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                if (response.isSuccessful()){
+                    callback.onUsuarioSuccess(response.body());
+                }else {
+                    callback.onUsuarioFailure("ERRO: " + response.code() + " - " + response.message());
+                }
+            }
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
+                callback.onUsuarioFailure(t.getMessage());
+            }
+        });
+    }
 }

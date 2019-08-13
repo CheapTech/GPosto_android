@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".GUI.SplashScreen"></activity>
         <activity android:name=".GUI.Destaques_Activity" />
         <activity android:name=".GUI.ListPosto_Activity" />
         <activity android:name=".GUI.Cadastro_Activity" />
